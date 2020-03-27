@@ -14,10 +14,15 @@ app.on('ready', function() {
 
     //Load html file into window
     mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname + 'mainWindow.html'),
+        pathname: path.join(__dirname, 'mainWindow.html'),
         protocol: 'file:',
         slashes: true
     }))
+
+    // Quit app when close
+    mainWindow.on('closed', function() {
+        app.quit()
+    })
 
     // Build menu from template
     const mainMenu = Menu.buildFromTemplate(mainMenuTemplate)
@@ -29,14 +34,14 @@ app.on('ready', function() {
 // Handle create add window
 function createAddWindow() {
     addWindow = new BrowserWindow({
-        width: 200,
-        height: 300,
+        width: 300,
+        height: 200,
         title: 'Add Shopping List Item'
     })
 
     //Load html file into window
     addWindow.loadURL(url.format({
-        pathname: path.join(__dirname + 'addWindow.html'),
+        pathname: path.join(__dirname, 'addWindow.html'),
         protocol: 'file:',
         slashes: true
     }))
@@ -50,7 +55,7 @@ const mainMenuTemplate = [
             {
                 label: 'Add Item',
                 click() {
-
+                    createAddWindow()
                 }
             },
             {
