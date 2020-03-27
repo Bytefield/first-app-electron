@@ -1,0 +1,23 @@
+{
+  "name": "first-app-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bytefield/first-app-electron.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bytefield/first-app-electron/issues"
+  },
+  "homepage": "https://github.com/Bytefield/first-app-electron#readme",
+  "devDependencies": {
+    "electron": "^8.2.0"
+  }
+}

@@ -1,1 +1,1 @@
-# first-app-electron
+# electron-app-first
