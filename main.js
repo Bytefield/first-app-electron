@@ -9,6 +9,7 @@ let addWindow
 
 // Listen for app to be ready
 app.on('ready', function() {
+    
     // Create new window
     mainWindow = new BrowserWindow({})
 
@@ -26,6 +27,7 @@ app.on('ready', function() {
 
     // Build menu from template
     const mainMenu = Menu.buildFromTemplate(mainMenuTemplate)
+    
     //Insert menu
     Menu.setApplicationMenu(mainMenu)
 
@@ -76,3 +78,27 @@ const mainMenuTemplate = [
         ]
     }
 ]
+
+// If mac, add empty object to beginning of menu
+if(process.platform == 'darwin') {
+    mainMenuTemplate.unshift({})
+}
+
+// Add developer tools if not in prod
+if(process.env.NODE_ENV != 'production') {
+    mainMenuTemplate.push({
+        label: 'Developer Tools',
+        submenu: [
+            {
+                label: 'Toggle Dev Tools',
+                accelerator: process.platform == 'darwin' ? 'Command+I' : 'Ctrl+I',
+                click(item, focusedWindow) {
+                    focusedWindow.toggleDevTools()
+                }
+            },
+            {
+                role: 'reload'
+            }
+        ]
+    })
+}
