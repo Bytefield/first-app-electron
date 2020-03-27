@@ -39,6 +39,11 @@ function createAddWindow() {
         title: 'Add Shopping List Item'
     })
 
+    // Garbage collection
+    addWindow.on('close', function() {
+        addWindow = null
+    })
+
     //Load html file into window
     addWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'addWindow.html'),
