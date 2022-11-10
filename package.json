@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/Bytefield/first-app-electron#readme",
   "devDependencies": {
-    "electron": "^8.2.0"
+    "electron": "^18.3.7"
   },
   "dependencies": {
     "browserify": "^16.5.0"
